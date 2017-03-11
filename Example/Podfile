@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'InfySwiftAllExtension_Example' do
+  pod 'InfySwiftAllExtension', :path => '../'
+
+  target 'InfySwiftAllExtension_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
