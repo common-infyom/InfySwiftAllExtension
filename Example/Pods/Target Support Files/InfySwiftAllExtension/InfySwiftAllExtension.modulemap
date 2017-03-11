@@ -1,0 +1,6 @@
+framework module InfySwiftAllExtension {
+  umbrella header "InfySwiftAllExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}

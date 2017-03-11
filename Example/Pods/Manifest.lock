@@ -1,0 +1,16 @@
+PODS:
+  - InfySwiftAllExtension (0.1.0)
+
+DEPENDENCIES:
+  - InfySwiftAllExtension (from `../`)
+
+EXTERNAL SOURCES:
+  InfySwiftAllExtension:
+    :path: ../
+
+SPEC CHECKSUMS:
+  InfySwiftAllExtension: e3b7112a2b520b26800f050cc195f121d1080e5f
+
+PODFILE CHECKSUM: 59cd907acbd2751d26df2c2d7aa614e88d955162
+
+COCOAPODS: 1.2.1.beta.1
