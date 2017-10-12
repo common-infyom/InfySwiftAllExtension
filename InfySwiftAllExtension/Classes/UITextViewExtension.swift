@@ -17,13 +17,12 @@ extension UITextView {
         var font = UIFont()
         if self.font != nil {
             font = self.font!
-        }
-        else {
+        } else {
             font = UIFont.init(name: "OpenSans", size: 15)!
         }
-        let myFont:CTFont = CTFontCreateWithName(font.fontName as CFString?, font.pointSize, nil)
+        let myFont:CTFont = CTFontCreateWithName((font.fontName as CFString?)!, font.pointSize, nil)
         let attStr:NSMutableAttributedString = NSMutableAttributedString(string: text as String)
-        attStr.addAttribute(String(kCTFontAttributeName), value:myFont, range: NSMakeRange(0, attStr.length))
+        attStr.addAttribute(NSAttributedStringKey(rawValue: String(kCTFontAttributeName)), value:myFont, range: NSMakeRange(0, attStr.length))
         let frameSetter:CTFramesetter = CTFramesetterCreateWithAttributedString(attStr as CFAttributedString)
         let path:CGMutablePath = CGMutablePath()
         path.addRect(CGRect(x: 0, y: 0, width: getScreenWidth() - 20 , height: 100000))

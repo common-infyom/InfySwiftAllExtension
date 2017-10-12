@@ -11,8 +11,6 @@ import UIKit
 
 extension UIView {
     
-    
-    
     //  Get width of View
     public var getWidth : CGFloat {
         return frame.width
@@ -42,7 +40,7 @@ extension UIView {
     public var startY : CGFloat {
         return frame.origin.y
     }
-
+    
     //  Set Origin.x
     public func setStartX(x : CGFloat) {
         self.frame.origin.x = x
@@ -204,8 +202,6 @@ extension UIView {
         superview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": self]))
     }
     
-
-    
     func setHeaderView() {
         guard let superview = self.superview else {
             print("Error! `superview` was nil – call `addSubview(view: UIView)` before calling `bindFrameToSuperviewBounds()` to fix this.")
@@ -216,10 +212,6 @@ extension UIView {
         superview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": self]))
         //        superview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[subview]-50-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": self]))
     }
-    
-
-
-    
 }
 
 

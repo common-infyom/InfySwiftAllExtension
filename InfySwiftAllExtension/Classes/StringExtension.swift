@@ -25,20 +25,13 @@ extension String {
     var removeDecimalPoints : String {
         return self.replacingOccurrences(of: ".", with: "")
     }
-    
-//    //  Trim String for phone number string
-//    public func trimPhoneNumberString() -> String {
-//        return replacingOccurrences(
-//            of: "\\D", with: "", options: .regularExpression,
-//            range: self.characters.indices)
-//    }
-    
+
     // String length
     public var length: Int {
         return self.characters.count
     }
     
-
+    
     //  NSDate from String
     public func getDate() -> Date {
         let dateFormate = DateFormatter()
@@ -74,7 +67,7 @@ extension String {
         let start = characters.index(startIndex, offsetBy: integerRange.lowerBound)
         let end = characters.index(startIndex, offsetBy: integerRange.upperBound)
         let range = start..<end
-        return self[range]
+        return String(self[range])
     }
     
     //  Convert String to NSDictionary
@@ -92,7 +85,7 @@ extension String {
     func convertslash() -> String {
         return self.replacingOccurrences(of: "\\", with: "/")
     }
-
+    
     
     /***
      Get String size
@@ -109,8 +102,8 @@ extension String {
             paragraphStyle.lineSpacing = lineSpecing
         }
         paragraphStyle.lineBreakMode = .byWordWrapping;
-        let  attributes = [NSFontAttributeName:font,
-                           NSParagraphStyleAttributeName:paragraphStyle.copy()]
+        let  attributes = [NSAttributedStringKey.font:font,
+                           NSAttributedStringKey.paragraphStyle:paragraphStyle.copy()]
         
         let text = self as NSString
         let rect = text.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context:nil)
@@ -123,9 +116,9 @@ extension String {
      :returns: Width of this string using given font
      */
     public func stringWidth(_ font: UIFont) -> CGFloat {
-        let  attributes = [NSFontAttributeName:font]
+        let  attributes = [NSAttributedStringKey.font:font]
         let text = self as NSString
-        let size = text.size(attributes: attributes)
+        let size = text.size(withAttributes: attributes)
         return size.width
     }
     
@@ -147,7 +140,7 @@ extension String {
             let regex = try NSRegularExpression(pattern: regex, options: [])
             let nsString = self as NSString
             let results = regex.matches(in: self,
-                                                options: [], range: NSMakeRange(0, nsString.length))
+                                        options: [], range: NSMakeRange(0, nsString.length))
             return results.map { nsString.substring(with: $0.range)}
         } catch let error as NSError {
             print("invalid regex: \(error.localizedDescription)")
@@ -188,7 +181,7 @@ extension String {
         }
     }
     
-   //   Convert String to UInt Value
+    //   Convert String to UInt Value
     public func toUInt() -> UInt? {
         if let myNumber = NumberFormatter().number(from: self) {
             return myNumber.uintValue
@@ -205,26 +198,26 @@ extension String {
             return nil
         }
     }
-
+    
     //  Check for email validation
     public var isEmail: Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: self)
     }
-
+    
     //  Check for URL validation
     public var isValideUrl : Bool {
         let urlRegEx = "((?:http|https)://)?(?:www\\.)?[\\w\\d\\-_]+\\.\\w{2,3}(\\.\\w{2})?(/(?<=/)(?:[\\w\\d\\-./_]+)?)?"
         let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
         return predicate.evaluate(with: self)
     }
-
+    
     //  Convert to NSData
     public func toNSData() -> Data {
         return self.data(using: String.Encoding.utf8, allowLossyConversion: true)!
     }
-
+    
     //  Get last path component
     public var lastPathComponent: String {
         get {
@@ -245,7 +238,7 @@ extension String {
             return (self as NSString).deletingLastPathComponent
         }
     }
-
+    
     //  Delete path extension
     public var stringByDeletingPathExtension: String {
         get {
@@ -265,7 +258,7 @@ extension String {
         let mainString = self as NSString
         return mainString.appendingPathComponent(path)
     }
-
+    
     //  Add path extension
     public func stringByAppendingPathExtension(_ ext: String) -> String? {
         let mainString = self as NSString
@@ -299,10 +292,6 @@ extension String {
     public func trimPhoneNumberString() -> String {
         return replacingOccurrences(of: "\\D", with: "", options: .regularExpression, range: self.startIndex ..< self.endIndex)
     }
-
-    
-    
-    
 }
 
 public extension NSAttributedString {

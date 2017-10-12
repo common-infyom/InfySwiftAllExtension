@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 extension Date {
     
     //  Get Week day from date
@@ -38,17 +37,17 @@ extension Date {
     
     //  Get Month index from date
     public var month: Int {
-         return NSCalendar.current.component(.month, from: self)
+        return NSCalendar.current.component(.month, from: self)
     }
     
     //  Get Day index from date
     public var day: Int {
-         return NSCalendar.current.component(.day, from: self)
+        return NSCalendar.current.component(.day, from: self)
     }
     
     //  Get Year index from date
     public var year: Int {
-         return NSCalendar.current.component(.year, from: self)
+        return NSCalendar.current.component(.year, from: self)
     }
     
     //  Get Time in AM / PM format
@@ -381,10 +380,10 @@ public extension Date {
     /**
      Returns Returns true if date is today.
      */
-//    func isToday() -> Bool
-//    {
-//        return self.isEqualToDateIgnoringTime(Date())
-//    }
+    //    func isToday() -> Bool
+    //    {
+    //        return self.isEqualToDateIgnoringTime(Date())
+    //    }
     
     /**
      Returns true if date is tomorrow.
@@ -942,11 +941,11 @@ public extension Date {
     /**
      Returns the year component.
      */
-//    func year () -> Int { return self.components().year!  }
+    //    func year () -> Int { return self.components().year!  }
     /**
      Returns the month component.
      */
-//    func month () -> Int { return self.components().month! }
+    //    func month () -> Int { return self.components().month! }
     /**
      Returns the week of year component.
      */
@@ -954,7 +953,7 @@ public extension Date {
     /**
      Returns the day component.
      */
-//    func day () -> Int { return self.components().day! }
+    //    func day () -> Int { return self.components().day! }
     /**
      Returns the hour component.
      */

@@ -22,7 +22,7 @@ pod "InfySwiftAllExtension"
 
 ## Author
 
-common-infyom, hiren.bharodia@gmail.com
+common-infyom, common.infyom@gmail.com
 
 ## License
 

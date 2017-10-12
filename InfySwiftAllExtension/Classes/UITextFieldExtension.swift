@@ -26,8 +26,8 @@ extension UITextField {
         self.leftView = view
         self.leftViewMode = .always
     }
-    
 }
+
 class CustomSearchTextField: UITextField, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()

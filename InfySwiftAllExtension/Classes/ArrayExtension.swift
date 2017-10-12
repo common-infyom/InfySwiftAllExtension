@@ -19,7 +19,7 @@ extension NSArray {
         do {
             //Convert to Data
             let jsonData = try JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions.prettyPrinted)
-
+            
             //Convert back to string. Usually only do this for debugging
             if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
                 print(JSONString)
@@ -30,13 +30,11 @@ extension NSArray {
             return ""
         }
     }
-
 }
+
 extension NSDictionary {
-    
     public func toJsonString() -> String {
         do {
-            
             //Convert to Data
             let jsonData = try JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions.prettyPrinted)
             
@@ -46,7 +44,7 @@ extension NSDictionary {
                 return JSONString
             }
             return ""
-
+            
         } catch {
             return ""
         }
